@@ -31,7 +31,7 @@ export default function Search({ dark, setDark }) {
               dark ? "text-[white]" : "text-[#4B6A9B]"
             } text-[13px] font-bold`}
           >
-            LIGHT
+            {dark ? "LIGHT" : "DARK"}
           </h3>
           <img src={dark ? SvgSun : SvgMoon} alt="sun svg" />
         </div>
