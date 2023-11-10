@@ -62,7 +62,7 @@ export default function Search({ dark, setDark }) {
       <div
         className={`${
           dark ? "bg-[#1E2A47]" : "bg-[#FEFEFE]"
-        } mt-[16px] pt-[32px] pb-[48px] px-[24px] rounded-[15px] md:w-[573px] md:h-[481px] md:p-[40px]`}
+        } mt-[16px] pt-[32px] pb-[48px] px-[24px] rounded-[15px] md:w-[573px] md:h-[481px] md:px-[40px] md:pt-[40px] md:pb-[44px]`}
       >
         <div className="flex gap-[19.5px]">
           <img
@@ -105,7 +105,7 @@ export default function Search({ dark, setDark }) {
             dark ? "bg-[#141D2F]" : "bg-[#F6F8FF]"
           } rounded-[10px] w-[279px] h-[85px] mt-[23px] md:w-[493px] md:gap-[70px]`}
         >
-          <div className="flex flex-col items-center w-[89px] h-[48px] gap-[8px]">
+          <div className="flex flex-col items-center w-[89px] h-[48px] gap-[8px] md:items-start md:ml-[20px] md:gap-[2px]">
             <p
               className={`${
                 dark ? "text-[white]" : "text-[#4B6A9B]"
@@ -121,7 +121,7 @@ export default function Search({ dark, setDark }) {
               8
             </p>
           </div>
-          <div className="flex flex-col items-center w-[89px] h-[48px] gap-[8px]">
+          <div className="flex flex-col items-center w-[89px] h-[48px] gap-[8px] md:items-start md:gap-[2px]">
             <p
               className={`${
                 dark ? "text-[white]" : "text-[#4B6A9B]"
@@ -137,7 +137,7 @@ export default function Search({ dark, setDark }) {
               3938
             </p>
           </div>
-          <div className="flex flex-col items-center w-[89px] h-[48px] gap-[8px]">
+          <div className="flex flex-col items-center w-[89px] h-[48px] gap-[8px] md:items-start md:gap-[2px]">
             <p
               className={`${
                 dark ? "text-[white]" : "text-[#4B6A9B]"
@@ -155,45 +155,47 @@ export default function Search({ dark, setDark }) {
           </div>
         </div>
 
-        <div className="flex gap-[19px] mt-[24px]">
-          <img src={SvgLocation} alt="location svg" />
-          <p
-            className={`${
-              dark ? "text-[white]" : "text-[#4B6A9B]"
-            } text-[13px] font-normal`}
-          >
-            San Francisco
-          </p>
-        </div>
-        <div className="flex gap-[13px] mt-[17px]">
-          <img src={SvgLink} alt="link svg" />
-          <p
-            className={`${
-              dark ? "text-[white]" : "text-[#4B6A9B]"
-            } text-[13px] font-normal`}
-          >
-            https://github.blog
-          </p>
-        </div>
-        <div className="flex gap-[13px] mt-[17px]">
-          <img src={SvgTwitter} alt="twitter svg" />
-          <p
-            className={`${
-              dark ? "text-[white]" : "text-[#4B6A9B]"
-            } text-[13px] font-normal`}
-          >
-            Not Available
-          </p>
-        </div>
-        <div className="flex gap-[13px] mt-[16px]">
-          <img src={SvgCompany} alt="company svg" />
-          <p
-            className={`${
-              dark ? "text-[white]" : "text-[#4B6A9B]"
-            } text-[13px] font-normal`}
-          >
-            @github
-          </p>
+        <div className="md:grid md:grid-cols-2">
+          <div className="flex gap-[19px] mt-[24px]">
+            <img src={SvgLocation} alt="location svg" />
+            <p
+              className={`${
+                dark ? "text-[white]" : "text-[#4B6A9B]"
+              } text-[13px] font-normal md:text-[15px]`}
+            >
+              San Francisco
+            </p>
+          </div>
+          <div className="flex gap-[13px] mt-[17px]">
+            <img src={SvgLink} alt="link svg" />
+            <p
+              className={`${
+                dark ? "text-[white]" : "text-[#4B6A9B]"
+              } text-[13px] font-normal md:text-[15px]`}
+            >
+              https://github.blog
+            </p>
+          </div>
+          <div className="flex gap-[13px] mt-[17px]">
+            <img src={SvgTwitter} alt="twitter svg" />
+            <p
+              className={`${
+                dark ? "text-[white]" : "text-[#4B6A9B]"
+              } text-[13px] font-normal md:text-[15px]`}
+            >
+              Not Available
+            </p>
+          </div>
+          <div className="flex gap-[13px] mt-[16px]">
+            <img src={SvgCompany} alt="company svg" />
+            <p
+              className={`${
+                dark ? "text-[white]" : "text-[#4B6A9B]"
+              } text-[13px] font-normal md:text-[15px]`}
+            >
+              @github
+            </p>
+          </div>
         </div>
       </div>
     </div>
