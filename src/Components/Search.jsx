@@ -40,23 +40,30 @@ export default function Search({ dark, setDark }) {
       <div
         className={`${
           dark ? "bg-[#1E2A47]" : "bg-[#FEFEFE]"
-        } rounded-[15px] flex mt-[35px] w-[327px] h-[60px] md:w-[573px] xl:w-[730px] transition duration-1000 ease-in-out`}
+        } rounded-[15px] flex justify-between mt-[35px] w-[327px] h-[60px] md:w-[573px] xl:w-[730px] transition duration-1000 ease-in-out`}
       >
-        <img
-          className="2-[20px] h-[20px] mt-[20px] ml-[16px] mr-[9px]"
-          src={SvgSearch}
-          alt="search svg"
-        />
-        <input
-          className={`${
-            dark ? "bg-[#1E2A47]" : "bg-[#FEFEFE]"
-          } outline-none text-[white] text-[13px] w-[184px] mr-[7px] placeholder:text-[13px] font-normal transition duration-1000 ease-in-out`}
-          type="text"
-          placeholder="Search GitHub username…"
-        />
-        <button className="bg-[#0079FF] rounded-[10px] font-bold text-[14px] text-[white] mt-[7px] mr-[7px] w-[86px] h-[46px] transition duration-1000 ease-in-out">
-          Search
-        </button>
+        <div className="flex flex-row">
+          <img
+            className="2-[20px] h-[20px] mt-[20px] ml-[16px] mr-[9px]"
+            src={SvgSearch}
+            alt="search svg"
+          />
+          <input
+            className={`${
+              dark ? "bg-[#1E2A47]" : "bg-[#FEFEFE]"
+            } outline-none text-[white] text-[13px] w-[184px] mr-[7px] placeholder:text-[13px] font-normal transition duration-1000 ease-in-out`}
+            type="text"
+            placeholder="Search GitHub username…"
+          />
+        </div>
+        <div className="flex flex-row items-center gap-[24px]">
+          <p className="text-[#F74646] text-[15px] font-bold hidden">
+            No results
+          </p>
+          <button className="bg-[#0079FF] hover:bg-[#60ABFF] rounded-[10px] font-bold text-[14px] text-[white]  mr-[7px] w-[86px] h-[46px] transition duration-1000 ease-in-out">
+            Search
+          </button>
+        </div>
       </div>
 
       <div
