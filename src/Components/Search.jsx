@@ -67,7 +67,7 @@ export default function Search({
             onChange={eventName}
           />
         </div>
-        <div className="flex flex-row items-center gap-[24px]">
+        <div className="flex flex-row items-center">
           <p className="text-[#F74646] text-[15px] font-bold ">
             {error ? error : "No Result"}
           </p>
@@ -83,11 +83,11 @@ export default function Search({
       <div
         className={`${
           dark ? "bg-[#1E2A47]" : "bg-[#FEFEFE]"
-        } mt-[16px] pt-[32px] pb-[48px] px-[24px] rounded-[15px] md:w-[573px] md:h-[481px] md:px-[40px] md:pt-[40px] md:pb-[44px] xl:w-[730px] xl:h-[444px] transition duration-1000 ease-in-out`}
+        } mt-[16px] pt-[32px] pb-[48px] px-[24px] rounded-[15px] md:w-[573px] md:px-[40px] md:pt-[40px] md:pb-[44px] xl:w-[730px] xl:h-[444px] transition duration-1000 ease-in-out`}
       >
         <div className="flex gap-[19.5px]">
           <img
-            className="md:w-[117px] md:h-[117px] rounded-[50%]"
+            className="w-[70px] h-[70px] md:w-[117px] md:h-[117px] rounded-[50%]"
             src={user.avatar_url}
             alt="logo svg"
           />
@@ -116,7 +116,7 @@ export default function Search({
 
         <div className="xl:pl-[158px]">
           <p
-            className={`w-[279px] h-[75px] mt-[34px] ${
+            className={`w-[279px] mt-[34px] ${
               dark ? "text-[white]" : "text-[#4B6A9B]"
             } text-[13px] font-normal leading-[25px] md:text-[15px] md:w-[493px] xl:mt-[-34px] transition duration-1000 ease-in-out`}
           >
@@ -126,7 +126,7 @@ export default function Search({
           <div
             className={`flex flex-row items-center ${
               dark ? "bg-[#141D2F]" : "bg-[#F6F8FF]"
-            } rounded-[10px] w-[279px] h-[85px] mt-[23px] md:mt-[0] md:w-[493px] md:gap-[70px] xl:w-[480px] xl:h-[85px] transition duration-1000 ease-in-out`}
+            } rounded-[10px] w-[279px] h-[85px] mt-[23px] md:mt-[32px] md:w-[493px] md:gap-[70px] xl:w-[480px] xl:h-[85px] transition duration-1000 ease-in-out`}
           >
             <div className="flex flex-col items-center w-[89px] h-[48px] gap-[8px] md:items-start md:ml-[20px] md:gap-[2px]">
               <p
