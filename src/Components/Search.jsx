@@ -9,7 +9,15 @@ import SvgTwitter from "../../public/assets/icon-twitter.svg";
 import SvgCompany from "../../public/assets/icon-company.svg";
 import SvgMoon from "../../public/assets/icon-moon.svg";
 
-export default function Search({ dark, setDark }) {
+export default function Search({
+  dark,
+  setDark,
+  user,
+  getUser,
+  eventName,
+  userName,
+  joinedDate,
+}) {
   return (
     <div className="flex flex-col justify-center min-h-[100vh] items-center px-[24px] pt-[31px] pb-[79px]">
       <div className="flex justify-between items-center w-[327px] md:w-[573px] xl:w-[730px]">
@@ -50,17 +58,20 @@ export default function Search({ dark, setDark }) {
           />
           <input
             className={`${
-              dark ? "bg-[#1E2A47]" : "bg-[#FEFEFE]"
+              dark ? "bg-[#1E2A47] text-white" : "bg-[#FEFEFE]  text-black"
             } outline-none text-[white] text-[13px] w-[184px] mr-[7px] placeholder:text-[13px] font-normal transition duration-1000 ease-in-out`}
             type="text"
+            value={userName}
             placeholder="Search GitHub username…"
+            onChange={eventName}
           />
         </div>
         <div className="flex flex-row items-center gap-[24px]">
-          <p className="text-[#F74646] text-[15px] font-bold hidden">
-            No results
-          </p>
-          <button className="bg-[#0079FF] hover:bg-[#60ABFF] rounded-[10px] font-bold text-[14px] text-[white]  mr-[7px] w-[86px] h-[46px] transition duration-1000 ease-in-out">
+          <p className="text-[#F74646] text-[15px] font-bold ">No results</p>
+          <button
+            onClick={getUser}
+            className="bg-[#0079FF] hover:bg-[#60ABFF] rounded-[10px] font-bold text-[14px] text-[white]  mr-[7px] w-[86px] h-[46px] transition duration-1000 ease-in-out"
+          >
             Search
           </button>
         </div>
@@ -73,8 +84,8 @@ export default function Search({ dark, setDark }) {
       >
         <div className="flex gap-[19.5px]">
           <img
-            className="md:w-[117px] md:h-[117px]"
-            src={SvgLogo}
+            className="md:w-[117px] md:h-[117px] rounded-[50%]"
+            src={user.avatar_url}
             alt="logo svg"
           />
           <div className="md:ml-[20px] md:mt-[10px] xl:flex xl:justify-between xl:w-[100%] xl:mt-[0]">
@@ -84,10 +95,10 @@ export default function Search({ dark, setDark }) {
                   dark ? "text-[white]" : "text-[#2B3442]"
                 } text-[16px] font-bold md:text-[26px] transition duration-1000 ease-in-out`}
               >
-                The Octocat
+                {user.name}
               </h3>
               <p className="text-[#0079FF] text-[13px] font-normal md:text-[16px] transition duration-1000 ease-in-out">
-                @octocat
+                @{user.login}
               </p>
             </div>
             <p
@@ -95,7 +106,7 @@ export default function Search({ dark, setDark }) {
                 dark ? "text-[white]" : "text-[#697C9A]"
               } text-[13px] font-normal mt-[6px] md:text-[15px] transition duration-1000 ease-in-out`}
             >
-              Joined 25 Jan 2011
+              Joined {joinedDate}
             </p>
           </div>
         </div>
@@ -106,8 +117,7 @@ export default function Search({ dark, setDark }) {
               dark ? "text-[white]" : "text-[#4B6A9B]"
             } text-[13px] font-normal leading-[25px] md:text-[15px] md:w-[493px] xl:mt-[-34px] transition duration-1000 ease-in-out`}
           >
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
-            odio. Quisque volutpat mattis eros.
+            {user.bio ? user.bio : "This profile has no bio"}
           </p>
 
           <div
@@ -128,7 +138,7 @@ export default function Search({ dark, setDark }) {
                   dark ? "text-[white]" : "text-[#2B3442]"
                 } font-bold text-[16px] md:text-[22px] transition duration-1000 ease-in-out`}
               >
-                8
+                {user.public_repos}
               </p>
             </div>
             <div className="flex flex-col items-center w-[89px] h-[48px] gap-[8px] md:items-start md:gap-[2px]">
@@ -144,7 +154,7 @@ export default function Search({ dark, setDark }) {
                   dark ? "text-[white]" : "text-[#2B3442]"
                 } font-bold text-[16px] md:text-[22px] transition duration-1000 ease-in-out`}
               >
-                3938
+                {user.followers}
               </p>
             </div>
             <div className="flex flex-col items-center w-[89px] h-[48px] gap-[8px] md:items-start md:gap-[2px]">
@@ -160,7 +170,7 @@ export default function Search({ dark, setDark }) {
                   dark ? "text-[white]" : "text-[#2B3442]"
                 } font-bold text-[16px] md:text-[22px] transition duration-1000 ease-in-out`}
               >
-                9
+                {user.following}
               </p>
             </div>
           </div>
@@ -173,7 +183,7 @@ export default function Search({ dark, setDark }) {
                   dark ? "text-[white]" : "text-[#4B6A9B]"
                 } text-[13px] font-normal md:text-[15px] transition duration-1000 ease-in-out`}
               >
-                San Francisco
+                {user.location ? user.location : "Not Available"}
               </p>
             </div>
             <div className="flex gap-[13px] mt-[17px]">
@@ -183,7 +193,7 @@ export default function Search({ dark, setDark }) {
                   dark ? "text-[white]" : "text-[#4B6A9B]"
                 } text-[13px] font-normal md:text-[15px] transition duration-1000 ease-in-out`}
               >
-                https://github.blog
+                {user.blog ? user.blog : "Not Available"}
               </p>
             </div>
             <div className="flex gap-[13px] mt-[17px]">
@@ -193,7 +203,9 @@ export default function Search({ dark, setDark }) {
                   dark ? "text-[white]" : "text-[#4B6A9B]"
                 } text-[13px] font-normal md:text-[15px] transition duration-1000 ease-in-out`}
               >
-                Not Available
+                {user.twitter_username
+                  ? user.twitter_username
+                  : "Not Available"}
               </p>
             </div>
             <div className="flex gap-[13px] mt-[16px]">
@@ -203,7 +215,7 @@ export default function Search({ dark, setDark }) {
                   dark ? "text-[white]" : "text-[#4B6A9B]"
                 } text-[13px] font-normal md:text-[15px] transition duration-1000 ease-in-out`}
               >
-                @github
+                {user.company ? user.company : "Not Available"}
               </p>
             </div>
           </div>
