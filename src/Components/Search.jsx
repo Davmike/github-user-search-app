@@ -17,6 +17,7 @@ export default function Search({
   eventName,
   userName,
   joinedDate,
+  error,
 }) {
   return (
     <div className="flex flex-col justify-center min-h-[100vh] items-center px-[24px] pt-[31px] pb-[79px]">
@@ -67,7 +68,9 @@ export default function Search({
           />
         </div>
         <div className="flex flex-row items-center gap-[24px]">
-          <p className="text-[#F74646] text-[15px] font-bold ">No results</p>
+          <p className="text-[#F74646] text-[15px] font-bold ">
+            {error ? error : "No Result"}
+          </p>
           <button
             onClick={getUser}
             className="bg-[#0079FF] hover:bg-[#60ABFF] rounded-[10px] font-bold text-[14px] text-[white]  mr-[7px] w-[86px] h-[46px] transition duration-1000 ease-in-out"

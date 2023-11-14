@@ -6,6 +6,7 @@ function App() {
   const [userName, setUserName] = useState("octocat");
   const [dark, setDark] = useState(true);
   const [user, setUser] = useState({});
+  const [error, setError] = useState(true);
 
   const getUser = async () => {
     try {
@@ -14,7 +15,10 @@ function App() {
       );
       const userData = response.data;
       setUser(userData);
-    } catch (err) {}
+      setError(true);
+    } catch (err) {
+      setError(false);
+    }
   };
   // useeffect section
   useEffect(() => {
@@ -45,6 +49,7 @@ function App() {
         eventName={eventName}
         userName={userName}
         joinedDate={joinedDate}
+        error={error}
       />
     </main>
   );
