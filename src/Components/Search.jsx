@@ -68,7 +68,7 @@ export default function Search({
           />
         </div>
         <div className="flex flex-row items-center">
-          <p className="text-[#F74646] text-[15px] font-bold ">
+          <p className="text-[#F74646] text-[8px] ml-[-89px] w-[92px] hidden font-bold md:block md:text-[15px]">
             {error ? error : "No Result"}
           </p>
           <button
